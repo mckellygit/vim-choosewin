@@ -137,7 +137,29 @@ function! s:read_char(prompt) "{{{1
   echohl PreProc
   echon a:prompt
   echohl Normal
-  return nr2char(getchar())
+  "return nr2char(getchar())
+  let c1 = getchar()
+  let c2 = nr2char(c1)
+  if c2 == "\<C-a>"
+      let c2 = 'a'
+  elseif c2 == "\<C-b>"
+      let c2 = 'b'
+  elseif c2 == "\<C-c>"
+      let c2 = 'c'
+  elseif c2 == "\<C-d>"
+      let c2 = 'd'
+  elseif c2 == "\<C-e>"
+      let c2 = 'e'
+  elseif c2 == "\<C-f>"
+      let c2 = 'f'
+  elseif c2 == "\<C-g>"
+      let c2 = 'g'
+  elseif c2 == "\<C-h>"
+      let c2 = 'h'
+  elseif c2 == "\<C-i>"
+      let c2 = 'i'
+  endif
+  return c2
 endfunction
 "}}}
 
